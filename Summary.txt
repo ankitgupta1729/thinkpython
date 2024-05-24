@@ -1,0 +1,570 @@
+(1) There are two ways to use the interpreter: interactive mode and script mode. In interactive mode, you type Python programs and the interpreter displays the result.
+
+(2) The chevron, >>>, is the prompt the interpreter uses to indicate that it is ready
+
+(3) Three kinds of errors can occur in a program: syntax errors, runtime errors, and semantic errors.
+
+(4) Syntax refers to the structure of a program and the rules about that structure. For example, parentheses have to come in matching pairs, so (1 + 2) is legal, but 8) is a syntax error.
+
+(5) The second type of error is a runtime error, so called because the error does not appear until after the program has started running. These errors are also called exceptions because they usually indicate that something exceptional (and bad) has happened. Runtime errors are rare in the simple programs.
+
+(6) The third type of error is the semantic error. If there is a semantic error in your program, it will run successfully in the sense that the computer will not generate any error messages, but it will not do the right thing. It will do something else.The problem is that the program you wrote is not the program you wanted to write. The meaning of the program (its semantics) is wrong. Identifying semantic errors can be tricky because it requires you to work backward by looking at the output of the program and trying to figure out what it is doing.
+
+(7) Natural languages are the languages people speak, such as English, Spanish, and French. They were not designed by people (although people try to impose some order on them); they evolved naturally.
+
+(8) Formal languages are languages that are designed by people for specific applications. For example, the notation that mathematicians use is a formal language that is particularly good at denoting relationships among numbers and symbols. Chemists use a formal language to represent the chemical structure of molecules. And most importantly: Programming languages are formal languages that have been designed to express computations. Formal languages tend to have strict rules about syntax.
+
+(9) When you read a sentence in English or a statement in a formal language, you have to figure out what the structure of the sentence is (although in a natural language you do this subconsciously). This process is called parsing.
+
+(10) For example, when you hear the sentence, “The penny dropped,” you understand that “the penny” is the subject and “dropped” is the predicate. 
+
+(11)  Natural languages are full of ambiguity, which people deal with by using contextual clues and other information. Formal languages are designed to be nearly or completely unambiguous. Formal languages are less redundant and more concise.
+
+(12) A variable is a name that refers to a value.
+
+(13) A module is a file that contains a collection of related functions.
+
+(14) import math -- This statement creates a module object named math. If you display the module object, you get some information about it.
+
+(15) The module object contains the functions and variables defined in the module. To access one of the functions, you have to specify the name of the module and the name of the function, separated by a dot (also known as a period). This format is called dot notation.
+
+(16) The rules for function names are the same as for variable names: letters, numbers and underscore are legal, but the first character can’t be a number. You can’t use a keyword as the name of a function, and you should avoid having a variable and a function with the same name.
+
+(17) The first line of the function definition is called the header; the rest is called the body. The header has to end with a colon and the body has to be indented. By convention, indentation is always four spaces. The body can contain any number of statements.
+
+(18) Defining a function creates a function object, which has type function.
+
+(19) Once you have defined a function, you can use it inside another function.
+
+(20) When you create a variable inside a function, it is local, which means that it only exists inside the function.
+
+(21) When you create a variable outside of any function, it belongs to  __main__
+
+(22) This list of functions is called a traceback.  The order of the functions in the traceback is the same as the order of the frames in the stack diagram. The function that is currently running is at the bottom.
+
+(23) Void functions might display something on the screen or have some other effect, but they don’t have a return value. If you assign the result to a variable, you get a special value called None.
+
+result=print_twice('Bing') // function Print_twice() does not return a value, it means it has void return type
+print(result) -- output is "None"
+type(None) -- output is "NoneType"
+
+(24) turtle module allows you to create images using turtle graphics.
+
+(25) A method is similar to a function, but it uses slightly different syntax. For example, to move the turtle forward:
+
+bob.fd(100)
+
+(26) Wrapping a piece of code up in a function is called encapsulation. One of the benefits of encapsulation is that it attaches a name to the code, which serves as a kind of documentation. Another advantage is that if you re-use the code, it is more concise to call a function twice than to copy and paste the body.
+
+(27) Adding a parameter to a function is called generalization because it makes the function more general.
+
+(28) By convention, import statements are usually at the beginning of the script.
+
+(29) Rearranging a program to improve interfaces and facilitate code re-use—is called refactoring.
+
+(30) A docstring is a string at the beginning of a function that explains the interface (“doc” is short for “documentation”).By convention, all docstrings are triple-quoted strings, also known as multiline strings because the triple quotes allow the string to span more than one line.
+
+(31) The floor division operator, //, divides two numbers and rounds down to an integer.
+
+(32)
+
+# if choice == 'a':
+#     draw_a()
+# elif choice == 'b':
+#     draw_b()
+# elif choice == 'c':
+#     draw_c()
+
+Each condition is checked in order. If the first is false, the next is checked, and so on. If one of them is true, the corresponding branch runs and the statement ends. Even if more than one condition is true, only the first true branch runs.
+
+(33) If a recursion never reaches a base case, it goes on making recursive calls forever, and the program never terminates. This is known as infinite recursion, and it is generally not a good idea.
+
+(34) In most programming environments, a program with infinite recursion does not really run forever. Python reports an error message when the maximum recursion depth is reached.
+
+(35) The print statements we wrote are useful for debugging, but once you get the function working, you should remove them. Code like that is called scaffolding because it is helpful for building the program but is not part of the final product.
+
+(36) In general it is dangerous to test float equality.
+
+(37) A segment of a string is called a slice.
+
+(38) we can't change the string object once defined in memory
+
+(39) Strings provide methods that perform a variety of useful operations. A method is similar to a function—it takes arguments and returns a value—but the syntax is different. For example, the method upper takes a string and returns a new string with all uppercase letters. 
+
+eg. name="ankit"... name.upper()
+
+A method call is called an invocation; in this case, we would say that we are invoking upper on name.
+
+(40) The word in is a boolean operator that takes two strings and returns True if the first appears as a substring in the second.
+
+(41) The built-in function open takes the name of the file as a parameter and returns a file object you can use to read the file.
+
+(42) A for loop over an empty list never runs the body:
+
+for x in []:
+    print('This never happens.')
+    
+(43) 
+
+t = [1, 2, 3]
+sum(t)    
+
+An operation like this that combines a sequence of elements into a single value is sometimes called reduce.
+
+(44)
+
+def capitalize_all(t):
+    res = []
+    for s in t:
+        res.append(s.capitalize())
+    return res
+    
+An operation like capitalize_all is sometimes called a map because it “maps” a function (in this case the method capitalize) onto each of the elements in a sequence.
+
+(45) 
+
+def only_upper(t):
+    res = []
+    for s in t:
+        if s.isupper():
+            res.append(s)
+    return res
+
+An operation like only_upper is called a filter because it selects some of the elements and filters out the others
+
+(46) pop modifies the list and returns the element that was removed. If you don’t provide an index, it deletes and returns the last element.
+
+lst.pop();lst.pop(1)
+
+(47) If you know the element you want to remove (but not the index), you can use remove. lst.remove('b')
+
+(48) If you want to break a string into words, you can use the split method
+
+(49) join is the inverse of split. It takes a list of strings and concatenates the elements. join is a string method, so you have to invoke it on the delimiter and pass the list as a parameter.
+
+(50)
+
+a = 'banana'
+b = 'banana'
+>>> a is b  -- True
+
+Here 'a' and 'b' are identical and equivalent. Here, Python only created one string object, and both a and b refer to it
+
+a = [1, 2, 3]
+b = [1, 2, 3]
+>>> a is b -- False
+
+Here 'a' and 'b' are equivalent but not identical. Here,  you have created two lists and you get two objects.
+
+In this case we would say that the two lists are equivalent, because they have the same elements, but not identical, because they are not the same object. If two objects are identical, they are also equivalent, but if they are equivalent, they are not necessarily identical.
+
+a = [1, 2, 3]
+b = a
+b is a -- True
+
+The association of a variable with an object is called a reference. In this example, there are two references to the same object.
+
+(51) An object with more than one reference has more than one name, so we say that the object is aliased. If the aliased object is mutable, changes made with one alias affect the other.
+
+(52) When you pass a list to a function, the function gets a reference to the list. If the function modifies the list, the caller sees the change.
+
+(53) It is important to distinguish between operations that modify lists and operations that create new lists. For example, the append method modifies a list, but the + operator creates a new list.
+
+t1 = [1, 2]
+t2 = t1.append(3)
+>>> t1 -- [1,2,3]
+>>> t2 -- None
+
+(54) A dictionary is like a list, but more general. In a list, the indices have to be integers; in a dictionary they can be (almost) any type.
+
+(55) A dictionary contains a collection of indices, which are called keys, and a collection of values. Each key is associated with a single value. The association of a key and a value is called a key-value pair or sometimes an item.
+
+(56) To add items to the dictionary, you can use square brackets: d['one']='ankit'
+
+(57) The order of the key-value pairs might not be the same. If you type the same example on your computer, you might get a different result. In general, the order of items in a dictionary is unpredictable.
+
+(58) Python dictionaries use a data structure called a hashtable that has a remarkable property: the in operator takes about the same amount of time no matter how many items are in the dictionary.
+
+(59) The keys are in no particular order. To traverse the keys in sorted order, you can use the built-in function sorted: sort(d)
+
+(60) Dictionary Methods: d.values(),d.keys(),d.items()
+
+(61) LookupError is a built-in exception used to indicate that a lookup operation failed.
+
+raise LookupError('value does not appear in the dictionary')
+
+(62) Lists can be values in a dictionary, as this example shows, but they cannot be keys.
+
+The system works fine if the keys are immutable. But if the keys are mutable, like lists, bad things happen because a=[1,2,3] and b=[1,2,3]
+are different objects and stored in different locations.
+
+(63) Variables in  __main__ are sometimes called global because they can be accessed from any function. To reassign a global variable inside a function you have to declare the global variable before you use it.
+
+been_called = False
+def example2():
+    global been_called
+    been_called = True
+example2() 
+been_called -- True 
+
+
+(64) [doubt] If a global variable refers to a mutable value, you can modify the value without declaring the variable:
+
+known = {0:0, 1:1}
+def example4():
+    known[2] = 1
+example4()    
+known -- {0: 0, 1: 1, 2: 1}
+
+(65) So you can add, remove and replace elements of a global list or dictionary, but if you want to reassign the variable, you have to declare it:
+
+def example5():
+    global known
+    known = dict()
+    
+(66)  tuples are immutable. t = 'a', 'b', 'c', 'd', 'e' (or) t = ('a', 'b', 'c', 'd', 'e')
+
+t2 = ('a') is a string but t2 = ('a',) is a too-ple(tuple)
+
+(67) The relational operators work with tuples and other sequences; Python starts by comparing the first element from each sequence. If they are equal, it goes on to the next elements, and so on, until it finds elements that differ. Subsequent elements are not considered (even if they are really big).
+
+(68) Strictly speaking, a function can only return one value, but if the value is a tuple, the effect is the same as returning multiple values.
+
+divmod(8,3) -- (2,2)
+
+(69) Functions can take a variable number of arguments. A parameter name that begins with "*" gathers arguments into a tuple. For example, printall takes any number of arguments and prints them:
+
+def printall(*args):
+    print(args)
+printall(1, 2.0, '3')
+
+-- (1, 2.0, '3')
+
+(70) *args can also work as scatter.
+
+The complement of gather is scatter. If you have a sequence of values and you want to pass it to a function as multiple arguments, you can use the * operator. For example, divmod takes exactly two arguments; it doesn’t work with a tuple:
+
+t = (7, 3)
+divmod(*t) -- (2,1)
+
+(71) zip is a built-in function that takes two or more sequences and interleaves them. The name of the function refers to a zipper, which interleaves two rows of teeth.
+
+(72) The result is a zip object that knows how to iterate through the pairs. The most common use of zip is in a for loop:
+
+s = 'abc'
+t = [0, 1, 2]
+for pair in zip(s, t):
+    print(pair)
+
+-- 
+
+('a', 0)
+('b', 1)
+('c', 2)
+
+(73) A zip object is a kind of iterator, which is any object that iterates through a sequence. Iterators are similar to lists in some ways, but unlike lists, you can’t use an index to select an element from an iterator.
+
+If you want to use list operators and methods, you can use a zip object to make a list:
+
+list(zip(s, t))
+
+-- [('a', 0), ('b', 1), ('c', 2)]
+
+(74) If you combine zip, for and tuple assignment, you get a useful idiom for traversing two (or more) sequences at the same time.
+
+def has_match(t1, t2):
+    for x, y in zip(t1, t2):
+        if x == y:
+            return True
+        return False
+ 
+(75) If you need to traverse the elements of a sequence and their indices, you can use the built-in function enumerate:
+
+for index, element in enumerate('abc'):
+    print(index, element)
+    
+--
+
+0 a
+1 b
+2 c    
+
+(76) d = dict(zip('abc', range(3)))
+>>> d -- {'a': 0, 'b': 1, 'c': 2}
+
+(77) Given the same inputs, most computer programs generate the same outputs every time, so they are said to be deterministic. For some applications, though, we want the computer to be unpredictable. Games are an obvious example, but there are more.
+
+Pseudorandom numbers are not truly random because they are generated by a deterministic computation, but just by looking at the numbers it is all but impossible to distinguish them from random.
+
+The random module provides functions that generate pseudorandom numbers (which I will simply call “random” from here on).The function random returns a random float between 0.0 and 1.0 (including 0.0 but not 1.0).
+
+x = random.random()
+
+(78) The function randint takes parameters low and high and returns an integer between low and high (including both).
+
+random.randint(5, 10)
+
+(79) To choose an element from a sequence at random, you can use choice
+
+t = [1, 2, 3]
+>>> random.choice(t) -- 1
+
+(80) The random module also provides functions to generate random values from continuous distributions including Gaussian, exponential, gamma, and a few more.
+
+(81) If the file already exists, opening it in write mode clears out the old data and starts fresh, so be careful! If the file doesn’t exist, a new one is created.
+
+(82) The argument of write has to be a string, so if we want to put other values in a file, we have to convert them to strings.
+
+(83) A text file is a sequence of characters stored on a permanent medium like a hard drive, flash memory, or CD-ROM.
+
+(84) Format Strings:
+
+when the first operand is a string, % is the format operator.
+
+camels = 42
+'%d' % camels
+
+-- '42'
+
+print("my fav number is %d" %1729)
+
+-- my fav number is 1729
+
+'In %d years I have spotted %g %s.' % (3, 0.1, 'camels')
+
+-- 'In 3 years I have spotted 0.1 camels.'
+
+(85) A path that begins with / does not depend on the current directory; it is called an absolute path. To find the absolute path to a file, you can use os.path.abspath.
+
+import os
+os.path.abspath('output.txt')
+
+-- 'C:\\Users\\ankit19.gupta\\ankit\\ankit\\ML_Code\\Python_R_Prolog_Code\\Python_Practice\\thinkpython\\output.txt'
+
+(86) os.path.exists checks whether a file or directory exists:
+
+ os.path.exists('output.txt')
+ 
+ -- True
+ 
+(87) If it exists, os.path.isdir checks whether it’s a directory:
+
+os.path.isdir('output.txt')
+
+-- False
+
+(88) Similarly, os.path.isfile checks whether it’s a file.
+
+(89) os.listdir returns a list of the files (and other directories) in the given directory:
+
+os.listdir(os.getcwd())
+
+(90) os.path.join takes a directory and a file name and joins them into a complete path.
+
+(91) Handling an exception with a try statement is called catching an exception.
+
+(92) A database is a file that is organized for storing data. Many databases are organized like a dictionary.
+
+The module dbm provides an interface for creating and updating database files
+
+import dbm
+db = dbm.open('captions', 'c')
+
+The mode 'c' means that the database should be created if it doesn’t already exist. The result is a database object that can be used (for most operations) like a dictionary.
+
+db['cleese.png'] = 'Photo of John Cleese.' #update
+db['cleese.png'] #access
+
+The result is a bytes object, which is why it begins with b. A bytes object is similar to a string in many ways
+
+(93) A limitation of dbm is that the keys and values have to be strings or bytes. If you try to use any other type, you get an error.
+
+The pickle module can help. It translates almost any type of object into a string suitable for storage in a database, and then translates strings back into objects.
+
+pickle.dumps takes an object as a parameter and returns a string representation (dumps is short for “dump string”):
+
+import pickle
+t = [1, 2, 3]
+pickle.dumps(t)
+t2 = pickle.loads(s)
+t2
+
+-- [1,2,3]
+
+t and t2 are equivalent i.e. t==t2 -- true but they are not identical i.e. t is t2 -- False
+
+In other words, pickling and then unpickling has the same effect as copying the object.
+
+(94) Any program that you can launch from the shell can also be launched from Python using a pipe object, which represents a running program.
+
+For example, the Unix command ls -l normally displays the contents of the current directory in long format. You can launch ls with os.popen:
+
+cmd = 'ls -l'
+fp = os.popen(cmd)
+fp.read()
+
+The argument is a string that contains a shell command.The return value is an object that behaves like an open file. You can read the output from the ls process one line at a time with readline or get the whole thing at once with read
+
+(95) if __name__ == '__main__':
+
+__name__ is a built-in variable that is set when the program starts. If the program is running as a script,  __name__ has the value  __main__
+
+(96) If you import a module that has already been imported, Python does nothing. It does not re-read the file, even if it has changed.
+
+If you want to reload a module, you can use the built-in function reload.
+
+(97) 
+
+s = '1 2\t 3\n 4'
+print(s)
+print(repr(s))
+
+--  
+
+1 2	 3
+ 4
+'1 2\t 3\n 4'
+
+The built-in function repr can help. It takes any object as an argument and returns a string representation of the object. For strings, it represents whitespace characters with backslash sequences.
+
+(98) A programmer-defined type is also called a class. Defining a class named Point creates a class object.Because Point is defined at the top level, its “full name” is  __main__.Point.
+
+class Point:
+    '''
+    represents point in a 2d
+    '''
+blank=Point()
+
+The return value is a reference to a Point object, which we assign to blank.
+
+Creating a new object is called instantiation, and the object is an instance of the class.When you print an instance, Python tells you what class it belongs to and where it is stored in memory.
+
+(99) Objects are mutable. You can change the state of an object by making an assignment to one of its attributes.
+
+(100) Aliasing can make a program difficult to read because changes in one place might have unexpected effects in another place. It is hard to keep track of all the variables that might refer to a given object
+
+Copying an object is often an alternative to aliasing. The copy module contains a function called copy that can duplicate any object:
+
+p1 = Point()
+p1.x = 3.0
+p1.y = 4.0
+import copy
+p2=copy.copy(p1)
+
+p1 and p2 contain the same data, but they are not the same Point.
+print(p1)
+print(p2)
+
+(101) For instances, the default behavior of the == operator is the same as the is operator; it checks object identity, not object equivalence.
+
+(102) If you use copy.copy to duplicate a Rectangle, you will find that it copies the Rectangle object but not the embedded Point.
+
+rect1 ---> Point <--- rect2
+
+This operation is called a shallow copy because it copies the object and any references it contains, but not the embedded objects.
+
+(103) Fortunately, the copy module provides a method named deepcopy that copies not only the object but also the objects it refers to, and the objects they refer to, and so on. You will not be surprised to learn that this operation is called a deep copy.
+
+box3 = copy.deepcopy(box)
+
+(104) A method is a function that is associated with a particular class.We have seen methods for strings, lists, dictionaries and tuples. In this chapter, we will define methods for programmer-defined types.
+
+(105) 
+
+class Time:
+    def print_time(time):
+        print('%.2d:%.2d:%.2d' % (time.hour, time.minute, time.second))
+        
+A. Now there are two ways to call print_time. The first (and less common) way is to use function syntax:
+
+start = Time()
+Time.print_time(start)
+
+B. The second (and more concise) way is to use method syntax:
+
+start.print_time()
+
+(106) By convention, the first parameter of a method is called self, so it would be more common to write print_time like this:
+
+class Time:
+    def print_time(self):
+        print('%.2d:%.2d:%.2d' % (self.hour, self.minute, self.second))
+        
+(107) a positional argument is an argument that doesn’t have a parameter name; that is, it is not a keyword argument.
+
+sketch(parrot, cage, dead=True)
+
+parrot and cage are positional, and dead is a keyword argument.
+
+(108) The init method (short for “initialization”) is a special method that gets invoked when an object is instantiated. Its full name is  __init__.
+
+(109) 
+
+class Time:
+    def __init__(self, hour=0, minute=0, second=0):
+        self.hour = hour
+        self.minute = minute
+        self.second = second
+        
+(110) __str__ is a special method, like __init__, that is supposed to return a string representation of an object.        
+
+def __str__(self):
+        return '%.2d:%.2d:%.2d' % (self.hour, self.minute, self.second)
+        
+(112) When I write a new class, I almost always start by writing  __init__, which makes it easier to instantiate objects, and  __str__, which is useful for debugging.        
+
+(113) Operator Overloading
+
+By defining other special methods, you can specify the behavior of operators on programmer-defined types. For example, if you define a method named  __add__ for the Time class, you can use the + operator on Time objects.
+
+# add it in time class
+def __add__(self, other):
+    seconds = self.time_to_int() + other.time_to_int()
+    return int_to_time(seconds)
+
+When you apply the + operator to Time objects, Python invokes  __add__.
+
+Changing the behavior of an operator so that it works with programmer-defined types is called operator overloading. For every operator in Python there is a corresponding special method, like  __add__.
+
+other example: __lt__ (less than)
+
+(114) Polymorphism
+
+Functions that work with several types are called polymorphic. Polymorphism can facilitate code reuse. For example, the built-in function sum, which adds the elements of a sequence, works as long as the elements of the sequence support addition.
+
+sum([1,2,4]+[2,3,5]) --17
+sum((1,2)) --3
+
+(115) Inheritance is the ability to define a new class that is a modified version of an existing class
+
+(116) Variables which are defined inside a class but outside of any method, are called class attributes because they are associated with the class object. Class_Name.class_attribute_name
+
+(117) A class diagram is a more abstract representation of the structure of a program. Instead of showing individual objects, it shows classes and the relationships between them.
+
+Objects in one class might contain references to objects in another class. For example, each Rectangle contains a reference to a Point, and each Deck contains references to many Cards. This kind of relationship is called HAS-A, as in, “a Rectangle has a Point.”
+
+One class might inherit from another. This relationship is called IS-A, as in, “a Hand is a kind of a Deck.”
+
+The arrow with a hollow triangle head represents an IS-A relationship
+
+The standard arrow head represents a HAS-A relationship
+
+(118) List comprehensions are concise and easy to read, at least for simple expressions. And they are usually faster than the equivalent for loops, sometimes much faster.
+
+(119) Generator expressions are similar to list comprehensions, but with parentheses instead of square brackets:
+
+g = (x**2 for x in range(5))
+
+The result is a generator object that knows how to iterate through a sequence of values. But unlike a list comprehension, it does not compute the values all at once; it waits to be asked. The built-in function next gets the next value from the generator:
+
+next(g)
+
+(120) The * operator doesn’t gather keyword arguments. To gather keyword arguments, you can use the ** operator.
+
+def printall(*args, **kwargs):
+    print(args, kwargs)
+    
+d = dict(x=1, y=2)
+Point(**d)
+
+-- Point(x=1, y=2)
